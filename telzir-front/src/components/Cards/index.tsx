@@ -42,7 +42,7 @@ export const Cards: React.FC<CardsProps> = ({
       <CardSubTitle>{CardTextSubTitleMoney}</CardSubTitle>
       <CardMinutesAndMoney>{CardTextMoney}</CardMinutesAndMoney>
       <ButtonCardBox>
-        <Buttons />
+        <Buttons ButtonThemeBackground="#7B1779" />
       </ButtonCardBox>
     </CardBackground>
   );

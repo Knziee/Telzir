@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const Button = styled.button`
-  background-color: ${(props: any) =>
-    props.CalculatorButton ? "#2E718E" : "#7B1779"};
+  /* background-color: ${(props: any) =>
+    props.CalculatorButton ? "#2E718E" : "#7B1779"}; */
   cursor: pointer;
   font-size: 16px;
   color: #fff;

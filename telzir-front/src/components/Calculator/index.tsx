@@ -11,8 +11,27 @@ import { ArrowIcon } from "../../assets/images";
 import { CalculatorInputTime } from "../CalculatorInputTime";
 import { Buttons } from "../Buttons";
 import { Cards } from "../Cards";
+import { useEffect, useState } from "react";
+import { tariffApi } from "../../services/tariffApi/config";
 
 export const Calculator: React.FC = () => {
+  interface DataProps {
+    destiny?: any;
+  }
+  const [data, setData] = useState<DataProps[]>([]);
+  const load = async () => {
+    try {
+      const response = await tariffApi.get("/api/tariffs/infos");
+      setData(response.data);
+      console.log(data);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  useEffect(() => {
+    load();
+  }, []);
+
   return (
     <div>
       <DDDBox>
@@ -36,7 +55,7 @@ export const Calculator: React.FC = () => {
         <CalculatorInputTime LabelText="Tempo de ligação"></CalculatorInputTime>
       </TimeBox>
       <ButtonBox>
-        <Buttons ButtonTheme="CalculatorButton" />
+        <Buttons ButtonThemeBackground="#2E718E" />
       </ButtonBox>
       <MiddleLineBox>
         <MiddleLine />
@@ -47,7 +66,7 @@ export const Calculator: React.FC = () => {
         FaleMais"
           CardTitleText2=""
           CardTitleMinutesText="30min"
-          CardTextLocations="xx > xx"
+          CardTextLocations=""
           CardTextSubTitleTime="Tempo de ligação : "
           CardTextMinutes="xx Min"
           CardTextSubTitleMoney="Voce gastaria:"

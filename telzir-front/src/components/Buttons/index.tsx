@@ -1,8 +1,12 @@
 import { Button } from "./styles";
 interface ButtonsProps {
-  ButtonTheme?: string;
+  ButtonThemeBackground?: string;
 }
 
-export const Buttons: React.FC<ButtonsProps> = ({ ButtonTheme }) => {
-  return <Button ButtonTheme>Botaozada</Button>;
+export const Buttons: React.FC<ButtonsProps> = ({ ButtonThemeBackground }) => {
+  return (
+    <Button style={{ backgroundColor: `${ ButtonThemeBackground } ` }}>
+      Botaozada
+    </Button>
+  );
 };
