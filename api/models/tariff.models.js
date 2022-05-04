@@ -1,23 +1,26 @@
 module.exports = (sequelize, Sequelize) => {
-    const Tariff = sequelize.define("tariff", {
+  const Tariff = sequelize.define(
+    "tariff",
+    {
       idTariff: {
-        primaryKey:true,
+        primaryKey: true,
         allowNull: false,
         autoIncrement: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       tariffName: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       TariffInfo_TariffInfoId: {
         type: Sequelize.INTEGER,
         allowNull: false,
-        references: {model: 'tariff_info', key: 'TariffInfoId'}
+        references: { model: "tariff_info", key: "TariffInfoId" },
       },
     },
     {
       freezeTableName: true,
       timestamps: false,
-    });
-    return Tariff;
-  };
+    }
+  );
+  return Tariff;
+};
