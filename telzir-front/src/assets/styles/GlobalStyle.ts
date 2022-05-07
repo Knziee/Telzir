@@ -12,6 +12,6 @@ export default createGlobalStyle`
 }
 body {
   /* background-color: #0F9246;  */
+  font-family: "RobotoRegular";
 }
 `;
-

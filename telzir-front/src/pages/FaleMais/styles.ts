@@ -7,6 +7,5 @@ export const WrapperContent = styled.div`
   flex-wrap: wrap;
   flex-direction: column;
   justify-content: center;
-  background-color: red;
   margin: auto;
 `;

@@ -10,6 +10,7 @@ export const PageTextBox = styled.div`
 `;
 export const PageTitle = styled.div`
   font-size: 38px;
+  font-family: "RobotoBold";
 `;
 export const PageSubTitle = styled.div`
   font-size: 20px;

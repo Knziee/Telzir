@@ -7,5 +7,5 @@ module.exports = app => {
     router.get("/infos", tariffsinfos.findAll);
     router.get("/:idTariff", tariffs.findOne);
     router.get("/info/:TariffInfoId", tariffsinfos.findOne);
-    app.use('/api/tariffs', router)
+    app.use("/api/tariffs", router)
 };

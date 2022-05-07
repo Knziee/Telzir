@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const DDDBox = styled.div`
   display: flex;
   justify-content: center;
-  margin-top: 70px;
+  margin-top: 30px;
   gap: 15px;
   img {
     padding-top: 40px;
@@ -40,4 +40,9 @@ export const CardsBox = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 36px;
+`;
+
+export const ContentToAppear = styled.div`
+  display: none;
 `;

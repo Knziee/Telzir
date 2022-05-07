@@ -1,31 +1,48 @@
 import { CalculatorInputBox, CalculatorInputLabelDDD } from "./styles";
 
 import { Form } from "react-bootstrap";
+import { useEffect, useState } from "react";
+import { tariffApi } from "../../services/tariffApi/config";
 
 interface CalculatorInputsProps {
   LabelText?: string;
-  FormValueDDD1?: string;
-  FormValueDDD2?: string;
-  FormValueDDD3?: string;
-  FormValueDDD4?: string;
+  setOriginDestiny?: any;
 }
 
 export const CalculatorInputsDDD: React.FC<CalculatorInputsProps> = ({
   LabelText,
-  FormValueDDD1,
-  FormValueDDD2,
-  FormValueDDD3,
-  FormValueDDD4,
+  setOriginDestiny,
 }) => {
+  interface DataProps {
+    tariffName?: any;
+  }
+
+  const [data, setData] = useState<DataProps[]>([]);
+  const loadTariff = async () => {
+    try {
+      const response = await tariffApi.get("/api/tariffs/");
+      setData(response.data);
+      console.log(data);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  useEffect(() => {
+    loadTariff();
+  }, []);
+
   return (
     <div>
       <CalculatorInputBox>
         <CalculatorInputLabelDDD>{LabelText}</CalculatorInputLabelDDD>
-        <Form.Select style={{ backgroundColor: "#E7E7E7" }}>
-          <option value={FormValueDDD1}>{FormValueDDD1}</option>
-          <option value={FormValueDDD2}>{FormValueDDD2}</option>
-          <option value={FormValueDDD3}>{FormValueDDD3}</option>
-          <option value={FormValueDDD4}>{FormValueDDD4}</option>
+        <Form.Select
+          onChange={(e) => setOriginDestiny(e.target.value)}
+          defaultValue={"default"}
+        >
+          <option value="Select a Value">Selecione destino e origem</option>
+          {data.map((e) => {
+            return <option value={e.tariffName}>{e.tariffName}</option>;
+          })}
         </Form.Select>
       </CalculatorInputBox>
     </div>

@@ -12,13 +12,12 @@ import { Buttons } from "../Buttons";
 
 interface CardsProps {
   CardTitleText1?: string;
-  CardTitleText2?: string;
-  CardTitleMinutesText?: string;
+  CardTitleMinutesText?: any;
   CardTextLocations?: string;
   CardTextSubTitleTime?: string;
-  CardTextMinutes?: string;
+  CardTextMinutes?: any;
   CardTextSubTitleMoney?: string;
-  CardTextMoney?: string;
+  CardTextMoney?: any;
 }
 
 export const Cards: React.FC<CardsProps> = ({
@@ -29,12 +28,10 @@ export const Cards: React.FC<CardsProps> = ({
   CardTextMinutes,
   CardTextSubTitleMoney,
   CardTextMoney,
-  CardTitleText2,
 }) => {
   return (
     <CardBackground>
       <CardTitle>{CardTitleText1}</CardTitle>
-      <CardTitle>{CardTitleText2}</CardTitle>
       <CardTitleMinutes>{CardTitleMinutesText}</CardTitleMinutes>
       <CardLocations>{CardTextLocations}</CardLocations>
       <CardSubTitle>{CardTextSubTitleTime}</CardSubTitle>
@@ -42,7 +39,7 @@ export const Cards: React.FC<CardsProps> = ({
       <CardSubTitle>{CardTextSubTitleMoney}</CardSubTitle>
       <CardMinutesAndMoney>{CardTextMoney}</CardMinutesAndMoney>
       <ButtonCardBox>
-        <Buttons ButtonThemeBackground="#7B1779" />
+        <Buttons ButtonThemeBackground="#7B1779" ButtonText="Assinar" />
       </ButtonCardBox>
     </CardBackground>
   );

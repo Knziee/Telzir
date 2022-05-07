@@ -73,3 +73,10 @@ INSERT INTO tariff_info (origin, destiny, valuePerMinute ) VALUES ("011", "017",
 INSERT INTO tariff_info (origin, destiny, valuePerMinute ) VALUES ("017", "011", "2.70"); 
 INSERT INTO tariff_info (origin, destiny, valuePerMinute ) VALUES ("011", "018", "0.90"); 
 INSERT INTO tariff_info (origin, destiny, valuePerMinute ) VALUES ("018", "011", "1.90"); 
+
+UPDATE `telzirdb`.`tariff` SET `tariffName` = 'De 011 para 016' WHERE (`idTariff` = '1');
+UPDATE `telzirdb`.`tariff` SET `tariffName` = 'De 016 para 011' WHERE (`idTariff` = '2');
+UPDATE `telzirdb`.`tariff` SET `tariffName` = 'De 011 para 017' WHERE (`idTariff` = '3');
+UPDATE `telzirdb`.`tariff` SET `tariffName` = 'De 017 para 011' WHERE (`idTariff` = '4');
+UPDATE `telzirdb`.`tariff` SET `tariffName` = 'De 011 para 018' WHERE (`idTariff` = '5');
+UPDATE `telzirdb`.`tariff` SET `tariffName` = 'De 018 para 011' WHERE (`idTariff` = '6');

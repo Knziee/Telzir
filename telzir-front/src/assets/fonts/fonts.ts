@@ -1,25 +1,32 @@
 import { createGlobalStyle } from "styled-components";
-// import ArimoFont from '../../assets/fonts/Arimo/Arimo-VariableFont_wght.ttf'
-// import BiryaniBoldFont from '../../assets/fonts/Biryani/Biryani-Bold.ttf'
-// import BiryaniRegularFont from '../../assets/fonts/Biryani/Biryani-Regular.ttf'
+import RobotoRegular from "../../assets/fonts/Roboto-Regular.ttf";
+import RobotoBold from "../../assets/fonts/Roboto-Bold.ttf";
+import RobotoBlack from "../../assets/fonts/Roboto-Black.ttf";
+import RobotoMedium from "../../assets/fonts/Roboto-Medium.ttf";
 
-// export const FontStyles = createGlobalStyle`
-//     @font-face {
-//         font-family: 'Arimo';
-//         src: local('Arimo'),
-//         url(${ArimoFont}) format('truetype');
-//         font-weight: normal;
-//     }
-//     @font-face {
-//         font-family: 'BiryaniBold';
-//         src: local('BiryaniBold'),
-//         url(${BiryaniBoldFont}) format('truetype');
-//         font-weight: 700;
-//     }
-//     @font-face {
-//         font-family: 'BiryaniRegular';
-//         src: local('BiryaniRegular'),
-//         url(${BiryaniRegularFont}) format('truetype');
-//         font-weight: 400;
-//     }
-// `;
+export const FontStyles = createGlobalStyle`
+    @font-face {
+        font-family: 'RobotoRegular';
+        src: local('RobotoRegular'),
+        url(${RobotoRegular}) format('truetype');
+        font-weight: normal;
+    }
+    @font-face {
+        font-family: 'RobotoMedium';
+        src: local('RobotoMedium'),
+        url(${RobotoMedium}) format('truetype');
+        font-weight: 500;
+    }
+    @font-face {
+        font-family: 'RobotoBold';
+        src: local('RobotoBold'),
+        url(${RobotoBold}) format('truetype');
+        font-weight: 700;
+    }
+    @font-face {
+        font-family: 'RobotoBlack';
+        src: local('RobotoBlack'),
+        url(${RobotoBlack}) format('truetype');
+        font-weight: 900;
+    }
+`;

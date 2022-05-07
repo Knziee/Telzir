@@ -9,4 +9,5 @@ export const CalculatorInputBox = styled.div`
 export const CalculatorInputLabelTime = styled.div`
   font-size: 20px;
   margin-bottom: 7px;
+  font-family: "RobotoMedium";
 `;
