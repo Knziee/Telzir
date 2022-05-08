@@ -17,7 +17,7 @@ HOST: usually localhost if it is running locally
 USER: your username of your local mysql connection  
 PASSWORD: password of your mysql local connection  
 
-After these settings, return to the api root folder and run the application's api by running the following command in the terminal _node server.js _  
+After these settings, return to the api root folder and run the application's api by running the following command in the terminal _node_ _server.js _  
 
 Then navigate to the telzir-front folder in your terminal and run _npm i_ again to install the frontend dependencies  
 
