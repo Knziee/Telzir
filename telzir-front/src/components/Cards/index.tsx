@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import {
   CardBackground,
   CardTitle,
@@ -7,7 +8,6 @@ import {
   CardMinutesAndMoney,
   ButtonCardBox,
 } from "./styles";
-
 import { Buttons } from "../Buttons";
 
 interface CardsProps {
@@ -19,7 +19,6 @@ interface CardsProps {
   CardTextSubTitleMoney?: string;
   CardTextMoney?: any;
 }
-
 export const Cards: React.FC<CardsProps> = ({
   CardTitleText1,
   CardTitleMinutesText,
@@ -30,17 +29,19 @@ export const Cards: React.FC<CardsProps> = ({
   CardTextMoney,
 }) => {
   return (
-    <CardBackground>
-      <CardTitle>{CardTitleText1}</CardTitle>
-      <CardTitleMinutes>{CardTitleMinutesText}</CardTitleMinutes>
-      <CardLocations>{CardTextLocations}</CardLocations>
-      <CardSubTitle>{CardTextSubTitleTime}</CardSubTitle>
-      <CardMinutesAndMoney>{CardTextMinutes}</CardMinutesAndMoney>
-      <CardSubTitle>{CardTextSubTitleMoney}</CardSubTitle>
-      <CardMinutesAndMoney>{CardTextMoney}</CardMinutesAndMoney>
-      <ButtonCardBox>
-        <Buttons ButtonThemeBackground="#7B1779" ButtonText="Assinar" />
-      </ButtonCardBox>
-    </CardBackground>
+    <motion.div whileHover={{ scale: 1.05 }} transition={{ duration: 0.5 }}>
+      <CardBackground>
+        <CardTitle>{CardTitleText1}</CardTitle>
+        <CardTitleMinutes>{CardTitleMinutesText}</CardTitleMinutes>
+        <CardLocations>{CardTextLocations}</CardLocations>
+        <CardSubTitle>{CardTextSubTitleTime}</CardSubTitle>
+        <CardMinutesAndMoney>{CardTextMinutes}</CardMinutesAndMoney>
+        <CardSubTitle>{CardTextSubTitleMoney}</CardSubTitle>
+        <CardMinutesAndMoney>{CardTextMoney}</CardMinutesAndMoney>
+        <ButtonCardBox>
+          <Buttons ButtonThemeBackground="#7B1779" ButtonText="Assinar" />
+        </ButtonCardBox>
+      </CardBackground>
+    </motion.div>
   );
 };

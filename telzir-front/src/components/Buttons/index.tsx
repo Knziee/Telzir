@@ -1,6 +1,7 @@
 import { Button } from "./styles";
+
 interface ButtonsProps {
-  ButtonThemeBackground?: string;
+  ButtonThemeBackground: string;
   ButtonText: string;
 }
 

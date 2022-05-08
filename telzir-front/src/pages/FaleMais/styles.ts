@@ -8,4 +8,10 @@ export const WrapperContent = styled.div`
   flex-direction: column;
   justify-content: center;
   margin: auto;
+  @media only screen and (max-width: 412px) {
+    margin-left: 13px;
+  }
+  @media only screen and (max-width: 360px) {
+    margin-left: 10px;
+  }
 `;

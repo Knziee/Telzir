@@ -1,8 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import GlobalCSS from "./assets/styles/GlobalStyle";
-import { FontStyles } from "./assets/fonts/fonts";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { FontStyles } from "./assets/fonts/fonts";
 import App from "./App";
 
 const root = ReactDOM.createRoot(

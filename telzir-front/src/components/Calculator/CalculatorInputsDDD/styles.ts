@@ -4,7 +4,6 @@ export const CalculatorInputBox = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-  margin-left: 20px;
 `;
 
 export const CalculatorInputLabelDDD = styled.div`

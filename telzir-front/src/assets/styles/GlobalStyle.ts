@@ -5,13 +5,12 @@ export default createGlobalStyle`
 	margin: 0;
 	padding: 0;
 	border: 0;
-    a, a:hover, a:focus, a:active {
-        text-decoration: none;
+  a, a:hover, a:focus, a:active {
+      text-decoration: none;
       color: inherit;
-    }
+  }
 }
-body {
-  /* background-color: #0F9246;  */
-  font-family: "RobotoRegular";
-}
+  body {
+    font-family: "RobotoRegular";
+  }
 `;

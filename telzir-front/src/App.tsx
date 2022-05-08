@@ -1,4 +1,3 @@
-import React from "react";
 import { FaleMais } from "./pages/FaleMais";
 
 function App() {

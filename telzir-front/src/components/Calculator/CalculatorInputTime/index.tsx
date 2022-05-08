@@ -1,13 +1,10 @@
-import { CalculatorInputBox, CalculatorInputLabelTime } from "./styles";
-
 import { Form } from "react-bootstrap";
-import { useState } from "react";
+import { CalculatorInputBox, CalculatorInputLabelTime } from "./styles";
 
 interface CalculatorInputsProps {
   LabelText?: string;
   setForm?: any;
 }
-
 export const CalculatorInputTime: React.FC<CalculatorInputsProps> = ({
   LabelText,
   setForm,

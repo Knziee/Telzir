@@ -1,8 +1,6 @@
 import styled from "styled-components";
 
 export const Button = styled.button`
-  /* background-color: ${(props: any) =>
-    props.CalculatorButton ? "#2E718E" : "#7B1779"}; */
   cursor: pointer;
   font-size: 16px;
   color: #fff;
@@ -10,10 +8,13 @@ export const Button = styled.button`
   padding: 4.5px 65px;
   transition: all 0.1s ease-in;
   font-family: "RobotoMedium";
+  box-shadow: 0 4px rgb(127, 127, 127, 0.2);
   &:hover {
+    filter: brightness(1.2);
   }
-
   &:active {
-    background-color: black;
+    box-shadow: 0 4px rgb(127, 127, 127, 0.6);
+    transform: translateY(3px);
+    filter: brightness(0.8);
   }
 `;

@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 import {
   DDDBox,
   TimeBox,
@@ -7,12 +9,11 @@ import {
   CardsBox,
   ContentToAppear,
 } from "./styles";
-import { CalculatorInputsDDD } from "../CalculatorInputsDDD";
-import { CalculatorInputTime } from "../CalculatorInputTime";
+import { tariffApi } from "../../services/tariffApi/config";
+import { CalculatorInputsDDD } from "./CalculatorInputsDDD";
+import { CalculatorInputTime } from "./CalculatorInputTime";
 import { Buttons } from "../Buttons";
 import { Cards } from "../Cards";
-import { useEffect, useState } from "react";
-import { tariffApi } from "../../services/tariffApi/config";
 
 export const Calculator: React.FC = () => {
   interface DataProps {
@@ -24,16 +25,20 @@ export const Calculator: React.FC = () => {
     valuePerMinute?: any;
     tariff_info?: any;
   }
+
   const [form, setForm]: any = useState("00");
   const [originDestiny, setOriginDestiny] = useState();
   const [showContent, SetShowContent] = useState("");
-
   const [data, setData]: any = useState<DataProps>();
+
+  let callValueAfterOriginDestinyCheck: any = 0;
+  let callOriginAfterOriginDestinyCheck: any = "Origem";
+  let callDestinyAfterOriginDestinyCheck: any = "Destino";
+
   const loadTariffInfo = async () => {
     try {
       const response = await tariffApi.get("/api/tariffs/infos");
       setData(response.data);
-      console.log(data[0].origin);
     } catch (err) {
       console.log(err);
     }
@@ -41,10 +46,6 @@ export const Calculator: React.FC = () => {
   useEffect(() => {
     loadTariffInfo();
   }, []);
-
-  let callValueAfterOriginDestinyCheck: any = 0;
-  let callOriginAfterOriginDestinyCheck: any = 0;
-  let callDestinyAfterOriginDestinyCheck: any = 0;
 
   if (originDestiny === "De 011 para 016") {
     callValueAfterOriginDestinyCheck = data[0].valuePerMinute;
@@ -110,10 +111,16 @@ export const Calculator: React.FC = () => {
       callValue: callValueAfterOriginDestinyCheck,
     },
   ];
-  function showContentAndAlert() {
+
+  const showContentAndAlert = () => {
     SetShowContent("hidden");
     alert("Você precisa inserir o tempo da ligação em minutos para simular!");
-  }
+  };
+  const loadCardsVariants = {
+    open: { opacity: 1, x: 0 },
+    closed: { opacity: 0, x: "-5%" },
+  };
+
   return (
     <div>
       <DDDBox>
@@ -139,33 +146,39 @@ export const Calculator: React.FC = () => {
         <MiddleLineBox>
           <MiddleLine />
         </MiddleLineBox>
-        <CardsBox>
-          {planCard.map((planCard: any, i: number) => {
-            const planValueCalculation =
-              (form - planCard.planTime) * planCard.callValue < 0
-                ? 0
-                : (form - planCard.planTime) *
-                  (planCard.planName !== "Sem FaleMais"
-                    ? planCard.callValue * 1.1
-                    : planCard.callValue);
-
-            return (
-              <Cards
-                CardTitleText1={planCard.planName}
-                CardTitleMinutesText={
-                  planCard.planTime + `${planCard.planTimeMin}`
-                }
-                CardTextLocations={
-                  planCard.callOrigin + "  >  " + planCard.callDestiny
-                }
-                CardTextSubTitleTime="Tempo de ligação : "
-                CardTextMinutes={form + " Min"}
-                CardTextSubTitleMoney="Voce gastaria:"
-                CardTextMoney={planValueCalculation.toFixed(2) + " R$"}
-              />
-            );
-          })}
-        </CardsBox>
+        <motion.div
+          animate={showContent === "block" ? "open" : "closed"}
+          variants={loadCardsVariants}
+          transition={{ duration: 0.5 }}
+        >
+          <CardsBox>
+            {planCard.map((planCard: any, i: number) => {
+              const planValueCalculation =
+                (form - planCard.planTime) * planCard.callValue < 0
+                  ? 0
+                  : (form - planCard.planTime) *
+                    (planCard.planName !== "Sem FaleMais"
+                      ? planCard.callValue * 1.1
+                      : planCard.callValue);
+              return (
+                <Cards
+                  key={i}
+                  CardTitleText1={planCard.planName}
+                  CardTitleMinutesText={
+                    planCard.planTime + `${planCard.planTimeMin}`
+                  }
+                  CardTextLocations={
+                    planCard.callOrigin + "  >  " + planCard.callDestiny
+                  }
+                  CardTextSubTitleTime="Tempo de ligação : "
+                  CardTextMinutes={form + " Min"}
+                  CardTextSubTitleMoney="Voce gastaria:"
+                  CardTextMoney={planValueCalculation.toFixed(2) + " R$"}
+                />
+              );
+            })}
+          </CardsBox>
+        </motion.div>
       </ContentToAppear>
     </div>
   );
