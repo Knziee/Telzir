@@ -8,7 +8,7 @@ Before running the application you will need to run the database, the script for
 [sql file](/bd/scriptCreateDatabasev2.sql)
 
 To run the application it is necessary to have node and npm installed.  
-guide for installing both: [Click here](https://www.taniarascia.com/how-to-install-and-use-node-js-and-npm-mac-and-windows/)  
+guide for installing both: [here](https://www.taniarascia.com/how-to-install-and-use-node-js-and-npm-mac-and-windows/)  
 
 After that, navigate to the api folder in your terminal and run _npm i_ to install the dependencies.  
 
@@ -48,7 +48,7 @@ Simulates the cost for each type of Falemais plan based on the call duration in 
 
 ## Preview:
 
-![preview](/src/assets/images/telzirScreenshotForReadme.png "preview")
+![preview](telzir-front/src/assets/images/telzirScreenshotForReadme.png "preview")
 
 
 ## developed by:
